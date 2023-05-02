@@ -42,13 +42,30 @@ class Banco{
             $stmt->bind_param("sssssssss", $linha[0], $linha[1], $linha[2], $linha[3], $linha[4], $linha[5], $linha[6], $linha[7], $linha[8]);
             $stmt->execute();
             echo "$dadosExcel";
+            $data = date('d/m/Y');
+            $situ = "em aberto";
+            $stmt = $this->con->prepare("insert into situacao (id_situacao, situacao, data)
+            values (?,?,?);");
+            $stmt->bind_param("sss", $linha[0], $situ ,$data);
+            $stmt->execute();
+            echo "$linha[0], $situ ,$data";
         }
+    }
+    function criarSituacao(){
+        
     }
     function inserirEstudanteCRUD($matricula,$nome,$telefone,$cpf,$anoConclusao,$cep,$numeroCasa,$complemento,$curso){
         $stmt = $this->con->prepare("insert into estudante (matricula, nome, telefone, cpf, ano_conclusao_curso, cep, numero, complemento, cod_curso)
         values (?,?,?,?,?,?,?,?,?);");
         $stmt->bind_param("sssssssss",$matricula,$nome,$telefone,$cpf,$anoConclusao,$cep,$numeroCasa,$complemento,$curso);
         $stmt->execute();
+	    $stmt = $this->con->prepare("insert into situacao (id_situacao, situacao, data)
+	     values (?,?,?,?,?,?,?,?,?);");
+        $data = date('d/m/Y');
+	 $situ = "em aberto";
+         values (?,?,?);");
+          $stmt->bind_param("sss", $matricula, $situ ,$data);
+          $stmt->execute();
     }
     //funcoes de mostrar
     function mostrarSurpevisores(){
