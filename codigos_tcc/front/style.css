@@ -1,0 +1,46 @@
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background: url('Design\ sem\ nome.png') center center no-repeat fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+  
+  .cabecalho {
+    width: 100%;
+    text-align: center;
+  }
+  
+  h3 {
+    background-color: #003274;
+    text-align: center;
+    font-size: +30;
+    padding-top: 30px;
+    color: rgb(255, 255, 255);
+    margin: 10;
+    font-family: 'Bebas Neue', sans-serif;
+    font-weight: bold
+  }
+  
+  nav {
+    background-color: #003274;
+    padding: 30px 5%;
+  }
+  nav a {
+    margin: 0 3px;
+    color: rgb(255, 255, 255);
+  }
+  
+  #pesquisar{
+    margin-left: 800px;
+  }
+  
+  
+#logo{
+	width: 148px;     
+}  
+
+
+

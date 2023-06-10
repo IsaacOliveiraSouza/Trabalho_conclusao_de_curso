@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="txtFiltro" onkeyup="filtrarSupervisor()">
+    <select id="cboSupervidor">
+
+    </select>
+    <div id="divResposta"></div>
+</body>
+<script>
+    let SUPERVISORES_JSON = {};
+
+    function filtrarSupervisor() {
+        let combo = document.getElementById('cboSupervidor');
+        let textoFiltro = document.getElementById("txtFiltro").value;
+        console.log(textoFiltro);
+        if (textoFiltro != "") {
+            combo.innerHTML = "";
+            for (var k in SUPERVISORES_JSON) {
+                let novoOption = document.createElement("option");
+                let nomeSupervisor = SUPERVISORES_JSON[k].nome;
+                novoOption.text = nomeSupervisor;
+                novoOption.value = SUPERVISORES_JSON[k].cod_supervisor;
+                //if(SUPERVISORES_JSON[k].nome==textoFiltro){
+
+                let position = nomeSupervisor.search(textoFiltro);
+
+                if (position >= 0)
+                    combo.add(novoOption);
+            }
+
+
+        }
+    }
+
+    function carregarSupervisor() {
+        const ajax = new XMLHttpRequest();
+        ajax.onload = function () {
+            SUPERVISORES_JSON = JSON.parse(this.responseText);
+            console.log(SUPERVISORES_JSON);
+
+            let combo = document.getElementById('cboSupervidor');
+
+            for (var k in SUPERVISORES_JSON) {
+                let novoOption = document.createElement("option");
+                novoOption.text = SUPERVISORES_JSON[k].nome;
+                novoOption.value = SUPERVISORES_JSON[k].cod_supervisor;
+                combo.add(novoOption);
+                console.log(k, SUPERVISORES_JSON[k].nome);
+
+            }
+
+            //document.getElementById("divResposta").innerHTML = this.responseText;
+        }
+        ajax.open("GET", "../controle/controle_Supervisor_Listar.php");
+        ajax.send();
+        //var data = {name:'yogesh',salary: 35000,email: 'yogesh@makitweb.com'};
+        //ajax.send(JSON.stringify(data));
+    }
+    carregarSupervisor();
+</script>
+
+</html>
