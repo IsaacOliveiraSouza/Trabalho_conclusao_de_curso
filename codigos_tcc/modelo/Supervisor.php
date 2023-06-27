@@ -98,7 +98,7 @@ class Supervisor implements JsonSerializable {
             $cod = $linha->cod_supervisor;
             $combo .= "<option value='$cod'>$nome</option>";
         }
-        $combo .= "</section>";
+        $combo .= "</select>";
         return $combo;
     }
     /**

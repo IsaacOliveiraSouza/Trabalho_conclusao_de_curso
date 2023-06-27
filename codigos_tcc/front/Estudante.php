@@ -21,6 +21,8 @@
         </nav>
         
     </header>
+
+    
     <h2>Inserir estudante: </h2>
     <form action="../controle/controle_Inserir_Estudante.php" method="get">
         <input type="text" placeholder="Matricula:" id="matricula" name="matricula">
@@ -39,12 +41,22 @@
         ?>
         <input type="submit">
     </form><br>
+
+
     <h2>Ler arquivo excel com estudantes</h2>
-    <form action="excelParaDB.php" method="post" enctype="multipart/form-data">
+    <form action="../controle/controle_Inserir_Estudante_CSV.php" method="post" enctype="multipart/form-data">
         <label for="arquivo">Arquivo: </label>
         <input type="file" name="arquivo" id="arquivo" accept="text/csv"><br>
 
         <input type="submit" value="Enviar">
+    </form><br>
+
+
+    <h2>Verificar/adicionar situação para algum aluno</h2>
+    <form action="pesquisaEstudante.php" method="get">
+        <input type="text" placeholder="Matrícula do aluno" name="pesquisaMatricula" id="pesquisaMatricula">
+
+        <input type="submit" value="Pesquisar">
     </form>
 </body>
 </html>

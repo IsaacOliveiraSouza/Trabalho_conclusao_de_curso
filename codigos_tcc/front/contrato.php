@@ -33,7 +33,7 @@
             echo $tbl;
         ?>
         <br>
-        <input type="text" name="apolice" id="apolice" placeholder="Apolice de serviço:">
+        <input type="text" name="apolice" id="apolice" placeholder="Apolice de seguro:">
         <button type="submit">enviar</button>
     </form>
 </body>

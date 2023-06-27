@@ -1,6 +1,7 @@
 <?php
-    include "conexaoBD.php";
-    $contrato = new Banco();
+
+    require_once("../modelo/Contrato.php");
+    $contrato = new Contrato();
     $matricula = $_GET['matricula'];
     $cnpj = $_GET['cnpj'];
     $dataInicio = $_GET['dataInicio'];

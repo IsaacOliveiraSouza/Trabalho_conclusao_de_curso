@@ -1,6 +1,6 @@
 <?php
-    include "conexaoBD.php";
-    $estudante = new Banco;
+    require_once("../modelo/Estudante.php");
+    $estudante = new Estudante();
     $matricula = $_GET['matricula'];
     $nome = $_GET['nome'];
     $telefone = $_GET['telefone'];

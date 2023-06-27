@@ -1,6 +1,6 @@
 <?php
-    include "conexaoBD.php";
-    $empresa = new Banco;
+    require_once("../modelo/Empresa.php");
+    $empresa = new Empresa();
     $cnpj = $_GET['cnpj'];
     $telefone = $_GET['telefone'];
     $nome = $_GET['nome'];
